@@ -545,17 +545,13 @@ export async function launchOptions({
         ff_version_str = installedVerStr().split('.', 1)[0];
     }
 
-    console.log('launchOptionslaunchOptionslaunchOptionslaunchOptionslaunchOptionslaunchOptions', {
-        operatingSystems: operatingSystems,
-    })
-
     // Generate a fingerprint
     if (!fingerprint) {
         fingerprint = generateFingerprint(
             window,
             {
                 screen: screen || getScreenCons(headless || 'DISPLAY' in env),
-                operatingSystems,
+                operatingSystems: operatingSystems ?? [],
             }
         );
     } else {
