@@ -92,6 +92,7 @@ export function generateFingerprint(window?: [number, number], config?: Partial<
         handleWindowSize(fingerprint, window[0], window[1]);
         return fingerprint;
     }
+    console.log('generateFingerprint from file', config)
     return FP_GENERATOR.getFingerprint(config).fingerprint;
 }
 
