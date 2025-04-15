@@ -79,7 +79,9 @@ interface Property {
 
 function loadProperties(filePath?: PathLike): Record<string, string> {
     let propFile: string;
-    filePath = filePath?.toString();
+    // [TODO][FIXME] wrong path for properties.json
+    // filePath = filePath?.toString();
+    filePath = undefined;
     if (filePath) {
         propFile = path.join(path.dirname(filePath), 'properties.json');
     } else {
