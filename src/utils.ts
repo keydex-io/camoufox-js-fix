@@ -79,9 +79,7 @@ interface Property {
 
 function loadProperties(filePath?: PathLike): Record<string, string> {
     let propFile: string;
-    // [TODO][FIXME] wrong path for properties.json
-    // filePath = filePath?.toString();
-    filePath = undefined;
+    filePath = filePath?.toString();
     if (filePath) {
         propFile = path.join(path.dirname(filePath), 'properties.json');
     } else {
@@ -107,7 +105,9 @@ interface EnvVars {
 }
 
 function validateConfig(configMap: Record<string, string>, path?: PathLike): void {
-    const propertyTypes = loadProperties(path);
+    // [TODO][INFO][FIXME] ERROR path
+    // const propertyTypes = loadProperties(path);
+    const propertyTypes = loadProperties();
 
     for (const [key, value] of Object.entries(configMap)) {
         const expectedType = propertyTypes[key];
